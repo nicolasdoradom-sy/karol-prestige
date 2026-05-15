@@ -10,17 +10,17 @@
     :root { --teal-dark: #082a26; --teal: #0e4840; --gold: #c9a84c; --gold-light: #e8d5a3; --cream: #faf6ef; }
     body { background-color: var(--teal-dark); font-family: 'Montserrat', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
     body::before { content: ''; position: fixed; inset: 0; background: radial-gradient(ellipse 100% 70% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 60%); pointer-events: none; }
-    .page-wrapper { width: 100%; max-width: 520px; padding: 2rem 1.5rem; position: relative; z-index: 1; animation: fadeUp 1s cubic-bezier(.16,1,.3,1) both; }
+    .page-wrapper { width: 100%; max-width: 520px; padding: 2rem 1.5rem; position: relative; z-index: 1; }
+
+    /* ── FORM CARD ── */
+    .card { background: linear-gradient(160deg,#0e4840 0%,#082a26 60%,#061f1b 100%); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.7); animation: fadeUp 1s cubic-bezier(.16,1,.3,1) both; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
-    .card { background: linear-gradient(160deg,#0e4840 0%,#082a26 60%,#061f1b 100%); border: 1px solid rgba(201,168,76,0.3); border-radius: 4px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.7); }
     .gold-bar { height: 3px; background: linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent); }
-    /* Logo */
     .logo-section { padding: 3rem 3rem 2rem; text-align: center; border-bottom: 1px solid rgba(201,168,76,0.15); }
     .logo-circle { width:100px;height:100px;margin:0 auto 1.2rem;border-radius:50%;border:1.5px solid rgba(201,168,76,0.4);background:linear-gradient(135deg,#0d3d38,#061f1b);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(201,168,76,0.2); }
     .logo-k { font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);line-height:1; }
     .brand-name { font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:var(--gold-light);letter-spacing:0.25em;text-transform:uppercase; }
     .brand-tagline { font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-top:0.3rem; }
-    /* Saludo */
     .greeting-section { padding:2.5rem 3rem 1.5rem;text-align:center; }
     .ornament { display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:1.2rem; }
     .orn-line { flex:1;max-width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5)); }
@@ -30,14 +30,12 @@
     .greeting-headline { font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,5vw,2.6rem);font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:1rem; }
     .greeting-headline em { font-style:italic;color:var(--gold-light); }
     .greeting-text { font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.8;font-weight:300; }
-    /* Contenido */
     .content-section { padding:0.5rem 3rem 2rem; }
     .perk { display:flex;align-items:flex-start;gap:14px;padding:0.9rem 0;border-bottom:1px solid rgba(201,168,76,0.08); }
     .perk:last-child { border-bottom:none; }
     .perk-num { font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(201,168,76,0.4);font-style:italic;flex-shrink:0;min-width:22px; }
     .perk-text { font-size:0.8rem;color:rgba(245,240,232,0.6);line-height:1.6;font-weight:300; }
     .perk-text strong { color:var(--gold-light);font-weight:500; }
-    /* CTA */
     .cta-section { padding:0.5rem 3rem 2.5rem; }
     .email-input { width:100%;padding:1rem 1.25rem;background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.25);border-radius:2px;color:var(--cream);font-size:0.85rem;font-family:'Montserrat',sans-serif;font-weight:300;outline:none;transition:border-color 0.3s,box-shadow 0.3s; }
     .email-input::placeholder { color:rgba(201,168,76,0.3);letter-spacing:0.1em;text-transform:uppercase;font-size:0.72rem; }
@@ -45,54 +43,147 @@
     .submit-btn { margin-top:0.75rem;width:100%;padding:1rem;background:linear-gradient(135deg,#c9a84c,#a07820);border:none;border-radius:2px;color:#082a26;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,opacity 0.2s; }
     .submit-btn:hover { transform:translateY(-1px);box-shadow:0 8px 30px rgba(201,168,76,0.3); }
     .submit-btn:disabled { opacity:0.5;cursor:not-allowed;transform:none; }
-    .status { margin-top:0.9rem;padding:0.85rem 1rem;border-radius:2px;font-size:0.78rem;letter-spacing:0.04em;text-align:center;display:none; }
-    .status.success { background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold-light);display:block; }
-    .status.error { background:rgba(200,50,50,0.08);border:1px solid rgba(200,50,50,0.25);color:#e8a0a0;display:block; }
-    /* Footer */
     .footer-section { background:rgba(0,0,0,0.25);border-top:1px solid rgba(201,168,76,0.15);padding:1.5rem 3rem;text-align:center; }
     .footer-brand { font-family:'Cormorant Garamond',serif;font-size:0.75rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.5); }
     .footer-text { font-size:0.7rem;color:rgba(245,240,232,0.25);line-height:1.7;font-weight:300;margin-top:0.5rem; }
     .footer-text a { color:rgba(201,168,76,0.45);text-decoration:none; }
     .gold-bottom { height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5),transparent); }
+
+    /* ── SUCCESS CARD ── */
+    .success-card {
+      display: none;
+      background: linear-gradient(160deg,#0e4840 0%,#082a26 60%,#061f1b 100%);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+    .success-card.show {
+      display: block;
+      animation: fadeUp 0.8s cubic-bezier(.16,1,.3,1) both;
+    }
+    .success-hero {
+      padding: 3rem 3rem 2rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .success-check {
+      width: 80px; height: 80px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      border: 1.5px solid rgba(201,168,76,0.5);
+      background: linear-gradient(135deg,#0d3d38,#061f1b);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 30px rgba(201,168,76,0.25);
+      font-size: 2rem;
+      animation: popIn 0.6s cubic-bezier(.34,1.56,.64,1) 0.3s both;
+    }
+    @keyframes popIn { from { transform:scale(0); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .success-brand { font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--gold-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem; }
+    .success-tagline { font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.5); }
+    .success-body { padding: 2.5rem 3rem; }
+    .success-title { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:1rem; }
+    .success-title em { font-style:italic;color:var(--gold-light); }
+    .success-email-display {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 2px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+    .success-text { font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.8;font-weight:300;margin-bottom:2rem; }
+    .success-perks {
+      background: rgba(0,0,0,0.2);
+      border-left: 2px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      margin-bottom: 2rem;
+      border-radius: 0 2px 2px 0;
+    }
+    .success-perk { font-size:0.78rem;color:rgba(245,240,232,0.6);padding:0.3rem 0;display:flex;align-items:center;gap:10px; }
+    .success-perk span { color:var(--gold);font-size:0.6rem; }
+    .success-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg,#c9a84c,#a07820);
+      color: #082a26;
+      font-family:'Montserrat',sans-serif;
+      font-size:0.72rem;
+      font-weight:600;
+      letter-spacing:0.2em;
+      text-transform:uppercase;
+      text-decoration:none;
+      border-radius:2px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .success-cta:hover { transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,0.3); }
+    .success-footer { background:rgba(0,0,0,0.25);border-top:1px solid rgba(201,168,76,0.15);padding:1.2rem 3rem;text-align:center; }
+    .success-footer-text { font-size:0.7rem;color:rgba(245,240,232,0.2);font-weight:300; }
   </style>
 </head>
 <body>
 <div class="page-wrapper">
-  <div class="card">
+
+  <!-- FORMULARIO -->
+  <div class="card" id="form-card">
     <div class="gold-bar"></div>
-    <!-- SECCIÓN 1: LOGO -->
     <div class="logo-section">
       <div class="logo-circle"><span class="logo-k">K</span></div>
       <div class="brand-name">Karol Prestige</div>
       <div class="brand-tagline">Scent of Luxury</div>
     </div>
-    <!-- SECCIÓN 2: SALUDO -->
     <div class="greeting-section">
       <div class="ornament"><div class="orn-line"></div><div class="orn-dot"></div><div class="orn-line r"></div></div>
       <div class="greeting-label">Colección Exclusiva</div>
       <h1 class="greeting-headline">El lujo comienza<br/>con <em>tu primer paso</em></h1>
-      <p class="greeting-text">Únete a nuestra lista privada y sé el primero en descubrir fragancias únicas, ediciones limitadas y experiencias olfativas diseñadas para quienes aprecian lo extraordinario.</p>
+      <p class="greeting-text">Únete a nuestra lista privada y sé el primero en descubrir fragancias únicas y ediciones limitadas.</p>
     </div>
-    <!-- SECCIÓN 3: CONTENIDO -->
     <div class="content-section">
       <div class="perk"><span class="perk-num">I</span><span class="perk-text"><strong>Acceso anticipado</strong> a nuevas colecciones y ediciones limitadas</span></div>
       <div class="perk"><span class="perk-num">II</span><span class="perk-text"><strong>Ofertas exclusivas</strong> y descuentos solo para suscriptores</span></div>
       <div class="perk"><span class="perk-num">III</span><span class="perk-text"><strong>Guías de maridaje</strong> olfativo de nuestros expertos</span></div>
       <div class="perk"><span class="perk-num">IV</span><span class="perk-text"><strong>Invitaciones privadas</strong> a lanzamientos en Colombia</span></div>
     </div>
-    <!-- SECCIÓN 4: CTA -->
     <div class="cta-section">
       <input id="email-input" class="email-input" type="email" placeholder="Tu correo electrónico" required/>
       <button id="submit-btn" class="submit-btn" onclick="sendEmail()">Unirme a la lista exclusiva</button>
-      <div id="status-msg" class="status"></div>
     </div>
-    <!-- SECCIÓN 5: FOOTER -->
     <div class="footer-section">
       <div class="footer-brand">Karol Prestige · Colombia</div>
       <p class="footer-text">Al suscribirte aceptas nuestra <a href="#">Política de privacidad</a>. Sin spam.</p>
     </div>
     <div class="gold-bottom"></div>
   </div>
+
+  <!-- PANTALLA DE BIENVENIDA -->
+  <div class="success-card" id="success-card">
+    <div class="gold-bar"></div>
+    <div class="success-hero">
+      <div class="success-check">✦</div>
+      <div class="success-brand">Karol Prestige</div>
+      <div class="success-tagline">Scent of Luxury</div>
+    </div>
+    <div class="success-body">
+      <h2 class="success-title">¡Bienvenido/a a<br/><em>nuestra familia!</em></h2>
+      <div class="success-email-display" id="success-email"></div>
+      <p class="success-text">Gracias por suscribirte. Revisa tu bandeja de entrada — te hemos enviado un correo de bienvenida con todo lo que necesitas saber.</p>
+      <div class="success-perks">
+        <div class="success-perk"><span>✦</span> Acceso anticipado a nuevas colecciones</div>
+        <div class="success-perk"><span>✦</span> Ofertas exclusivas para suscriptores</div>
+        <div class="success-perk"><span>✦</span> Invitaciones a lanzamientos privados</div>
+      </div>
+      <a href="https://karolprestige.com" class="success-cta">Explorar Colección</a>
+    </div>
+    <div class="success-footer">
+      <p class="success-footer-text">Karol Prestige · Colombia · Scent of Luxury</p>
+    </div>
+    <div class="gold-bottom"></div>
+  </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -102,15 +193,16 @@
   function sendEmail() {
     const emailInput = document.getElementById("email-input");
     const btn = document.getElementById("submit-btn");
-    const statusEl = document.getElementById("status-msg");
     const email = emailInput.value.trim();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showStatus("Por favor ingresa un correo válido.", "error"); return;
+      emailInput.style.borderColor = "rgba(200,50,50,0.6)";
+      setTimeout(() => emailInput.style.borderColor = "rgba(201,168,76,0.25)", 2000);
+      return;
     }
 
-    btn.disabled = true; btn.textContent = "Enviando…";
-    statusEl.className = "status"; statusEl.style.display = "none";
+    btn.disabled = true;
+    btn.textContent = "Enviando…";
 
     emailjs.send("service_z04zkdb", "template_yug9pui", {
       to_email  : email,
@@ -120,22 +212,17 @@
       message   : "Hola " + email + ", gracias por suscribirte a Karol Prestige. Pronto recibirás nuestras novedades exclusivas. Scent of Luxury."
     })
     .then(() => {
-      showStatus("✦ ¡Bienvenido/a! Revisa tu correo.", "success");
-      emailInput.value = "";
-      btn.textContent = "Unirme a la lista exclusiva";
-      btn.disabled = false;
+      // Mostrar pantalla de éxito
+      document.getElementById("success-email").textContent = email;
+      document.getElementById("form-card").style.display = "none";
+      document.getElementById("success-card").classList.add("show");
     })
     .catch(err => {
       console.error("EmailJS error:", JSON.stringify(err));
-      showStatus("Error: " + (err.text || err.status || "intenta de nuevo"), "error");
-      btn.textContent = "Unirme a la lista exclusiva";
+      btn.textContent = "Error — intenta de nuevo";
       btn.disabled = false;
+      emailInput.style.borderColor = "rgba(200,50,50,0.6)";
     });
-  }
-
-  function showStatus(msg, type) {
-    const el = document.getElementById("status-msg");
-    el.textContent = msg; el.className = "status " + type;
   }
 
   document.addEventListener("DOMContentLoaded", () => {
