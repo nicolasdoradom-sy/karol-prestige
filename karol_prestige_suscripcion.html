@@ -49,80 +49,196 @@
     .footer-text a { color:rgba(201,168,76,0.45);text-decoration:none; }
     .gold-bottom { height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5),transparent); }
 
-    /* ── SUCCESS CARD ── */
+    /* ── SUCCESS CARD — ESTILO BANCOLOMO ── */
     .success-card {
       display: none;
-      background: linear-gradient(160deg,#0e4840 0%,#082a26 60%,#061f1b 100%);
-      border: 1px solid rgba(201,168,76,0.3);
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 40px 100px rgba(0,0,0,0.7);
-      text-align: center;
+      background: #fff;
     }
     .success-card.show {
       display: block;
       animation: fadeUp 0.8s cubic-bezier(.16,1,.3,1) both;
     }
-    .success-hero {
-      padding: 3rem 3rem 2rem;
-      border-bottom: 1px solid rgba(201,168,76,0.15);
+
+    /* Hero oscuro con fondo tipo BanColomo */
+    .sc-hero {
+      position: relative;
+      min-height: 220px;
+      background: #0a0a0a;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 2.5rem 2.5rem 2rem;
     }
-    .success-check {
-      width: 80px; height: 80px;
-      margin: 0 auto 1.5rem;
-      border-radius: 50%;
-      border: 1.5px solid rgba(201,168,76,0.5);
-      background: linear-gradient(135deg,#0d3d38,#061f1b);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 30px rgba(201,168,76,0.25);
-      font-size: 2rem;
-      animation: popIn 0.6s cubic-bezier(.34,1.56,.64,1) 0.3s both;
+    /* fondo abstracto con gradientes de color superpuestos */
+    .sc-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 80% 30%, rgba(139,90,30,0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 70%, rgba(8,42,38,0.8) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30,20,10,0.4) 0%, transparent 100%);
+      z-index: 0;
     }
-    @keyframes popIn { from { transform:scale(0); opacity:0; } to { transform:scale(1); opacity:1; } }
-    .success-brand { font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:var(--gold-light);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.3rem; }
-    .success-tagline { font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.5); }
-    .success-body { padding: 2.5rem 3rem; }
-    .success-title { font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:1rem; }
-    .success-title em { font-style:italic;color:var(--gold-light); }
-    .success-email-display {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 2px;
-      font-size: 0.8rem;
-      color: var(--gold-light);
-      letter-spacing: 0.06em;
+    /* manchas de luz tipo fotografía de perfume */
+    .sc-hero::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(201,168,76,0.25) 0%, transparent 65%);
+      z-index: 0;
+    }
+    .sc-hero-badge {
+      position: relative;
+      z-index: 1;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.8);
+      margin-bottom: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+    }
+    .sc-hero-title {
+      position: relative;
+      z-index: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .sc-hero-title strong {
+      display: block;
+      font-weight: 600;
+      font-size: clamp(1.9rem, 6vw, 2.8rem);
+    }
+    .sc-hero-sub {
+      position: relative;
+      z-index: 1;
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Cuerpo blanco */
+    .sc-body {
+      background: #ffffff;
+      padding: 2rem 2.5rem 0;
+    }
+    .sc-email-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f5f1ea;
+      border-radius: 100px;
+      padding: 0.45rem 1rem;
+      font-size: 0.78rem;
+      color: #5a4a25;
+      font-weight: 500;
       margin-bottom: 1.5rem;
+      font-family: 'Montserrat', sans-serif;
     }
-    .success-text { font-size:0.82rem;color:rgba(245,240,232,0.55);line-height:1.8;font-weight:300;margin-bottom:2rem; }
-    .success-perks {
-      background: rgba(0,0,0,0.2);
-      border-left: 2px solid var(--gold);
-      padding: 1.2rem 1.5rem;
-      text-align: left;
-      margin-bottom: 2rem;
-      border-radius: 0 2px 2px 0;
+    .sc-email-pill::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 0.65rem;
     }
-    .success-perk { font-size:0.78rem;color:rgba(245,240,232,0.6);padding:0.3rem 0;display:flex;align-items:center;gap:10px; }
-    .success-perk span { color:var(--gold);font-size:0.6rem; }
-    .success-cta {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(135deg,#c9a84c,#a07820);
-      color: #082a26;
-      font-family:'Montserrat',sans-serif;
-      font-size:0.72rem;
-      font-weight:600;
-      letter-spacing:0.2em;
-      text-transform:uppercase;
-      text-decoration:none;
-      border-radius:2px;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .sc-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 0;
     }
-    .success-cta:hover { transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,0.3); }
-    .success-footer { background:rgba(0,0,0,0.25);border-top:1px solid rgba(201,168,76,0.15);padding:1.2rem 3rem;text-align:center; }
-    .success-footer-text { font-size:0.7rem;color:rgba(245,240,232,0.2);font-weight:300; }
+    .sc-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0ece4;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .sc-benefit:last-child { border-bottom: none; }
+    .sc-benefit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f5f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sc-benefit-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.15rem;
+    }
+    .sc-benefit-desc {
+      font-size: 0.73rem;
+      color: #888;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* CTA section */
+    .sc-cta-section {
+      background: #ffffff;
+      padding: 1.75rem 2.5rem 2rem;
+    }
+    .sc-cta-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      background: #1a1a1a;
+      color: #ffffff;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .sc-cta-btn:hover { background: #2a2a2a; }
+
+    /* Footer */
+    .sc-footer {
+      background: #f8f5ef;
+      border-top: 1px solid #ede8dd;
+      padding: 1.2rem 2.5rem;
+      text-align: center;
+    }
+    .sc-footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #a07820;
+      margin-bottom: 0.3rem;
+    }
+    .sc-footer-text {
+      font-size: 0.68rem;
+      color: #aaa;
+      font-weight: 300;
+    }
+    .gold-bottom-dark { height: 3px; background: linear-gradient(90deg,transparent,#c9a84c,#e8d5a3,#c9a84c,transparent); }
   </style>
 </head>
 <body>
@@ -159,29 +275,56 @@
     <div class="gold-bottom"></div>
   </div>
 
-  <!-- PANTALLA DE BIENVENIDA -->
+  <!-- PANTALLA DE BIENVENIDA — ESTILO BANCOLOMO -->
   <div class="success-card" id="success-card">
-    <div class="gold-bar"></div>
-    <div class="success-hero">
-      <div class="success-check">✦</div>
-      <div class="success-brand">Karol Prestige</div>
-      <div class="success-tagline">Scent of Luxury</div>
-    </div>
-    <div class="success-body">
-      <h2 class="success-title">¡Bienvenido/a a<br/><em>nuestra familia!</em></h2>
-      <div class="success-email-display" id="success-email"></div>
-      <p class="success-text">Gracias por suscribirte. Revisa tu bandeja de entrada — te hemos enviado un correo de bienvenida con todo lo que necesitas saber.</p>
-      <div class="success-perks">
-        <div class="success-perk"><span>✦</span> Acceso anticipado a nuevas colecciones</div>
-        <div class="success-perk"><span>✦</span> Ofertas exclusivas para suscriptores</div>
-        <div class="success-perk"><span>✦</span> Invitaciones a lanzamientos privados</div>
+    <div class="gold-bottom-dark"></div>
+
+    <!-- Hero oscuro -->
+    <div class="sc-hero">
+      <div class="sc-hero-badge">Karol Prestige · Scent of Luxury</div>
+      <div class="sc-hero-title">
+        Gracias por unirte a
+        <strong>Karol Prestige</strong>
       </div>
-      <a href="https://karolprestige.com" class="success-cta">Explorar Colección</a>
+      <div class="sc-hero-sub">La fragancia del lujo, ahora en tu bandeja de entrada.</div>
     </div>
-    <div class="success-footer">
-      <p class="success-footer-text">Karol Prestige · Colombia · Scent of Luxury</p>
+
+    <!-- Cuerpo blanco -->
+    <div class="sc-body">
+      <div class="sc-email-pill" id="success-email"></div>
+      <div class="sc-benefits">
+        <div class="sc-benefit">
+          <div class="sc-benefit-icon">✦</div>
+          <div>
+            <div class="sc-benefit-title">Acceso anticipado</div>
+            <div class="sc-benefit-desc">Nuevas colecciones y ediciones limitadas antes que nadie.</div>
+          </div>
+        </div>
+        <div class="sc-benefit">
+          <div class="sc-benefit-icon">✦</div>
+          <div>
+            <div class="sc-benefit-title">Ofertas exclusivas</div>
+            <div class="sc-benefit-desc">Descuentos y beneficios solo para suscriptores.</div>
+          </div>
+        </div>
+        <div class="sc-benefit">
+          <div class="sc-benefit-icon">✦</div>
+          <div>
+            <div class="sc-benefit-title">Invitaciones privadas</div>
+            <div class="sc-benefit-desc">Lanzamientos exclusivos en Colombia.</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="gold-bottom"></div>
+
+    <div class="sc-cta-section">
+      <a href="https://karolprestige.com" class="sc-cta-btn">Explorar Colección</a>
+    </div>
+
+    <div class="sc-footer">
+      <div class="sc-footer-brand">Karol Prestige</div>
+      <p class="sc-footer-text">Colombia · Scent of Luxury · Puedes cancelar tu suscripción en cualquier momento.</p>
+    </div>
   </div>
 
 </div>
@@ -212,7 +355,6 @@
       message   : "Hola " + email + ", gracias por suscribirte a Karol Prestige. Pronto recibirás nuestras novedades exclusivas. Scent of Luxury."
     })
     .then(() => {
-      // Mostrar pantalla de éxito
       document.getElementById("success-email").textContent = email;
       document.getElementById("form-card").style.display = "none";
       document.getElementById("success-card").classList.add("show");
